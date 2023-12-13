@@ -96,6 +96,7 @@ LightmapSettings:
     m_PVRFilteringAtrousPositionSigmaAO: 1
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
+    m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
   m_UseShadowmask: 1
 --- !u!196 &4
@@ -219,8 +220,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-    m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
-      Culture=neutral, PublicKeyToken=null
 --- !u!114 &167560117
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -239,8 +238,6 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
-      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_Sprite: {fileID: 21300000, guid: 6cb017c458090fd4d843c1cad422e7ba, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
@@ -275,6 +272,7 @@ GameObject:
   m_Component:
   - component: {fileID: 174618835}
   - component: {fileID: 174618836}
+  - component: {fileID: 174618837}
   m_Layer: 8
   m_Name: SpinnerTopModel_3
   m_TagString: Untagged
@@ -311,6 +309,7 @@ SpriteRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -346,6 +345,21 @@ SpriteRenderer:
   m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &174618837
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 174618834}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 190f22adee323014da14fa81bcc5a5f3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _playerGraphics: {fileID: 2060466950}
+  _spinSpeed: 50
+  _doSpin: 1
 --- !u!1 &213413509
 GameObject:
   m_ObjectHideFlags: 0
@@ -539,8 +553,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-    m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
-      Culture=neutral, PublicKeyToken=null
 --- !u!114 &259007088
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -559,8 +571,6 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
-      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_Sprite: {fileID: 21300000, guid: 2d05abac8c5b4824382f2f4bcbe89918, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
@@ -586,11 +596,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1327619906}
     m_Modifications:
-    - target: {fileID: 3884173310291992351, guid: 7a21e79c256cb774aa7b7aad3fe982af,
-        type: 3}
-      propertyPath: m_Name
-      value: Spinner_Attacker_01
-      objectReference: {fileID: 0}
     - target: {fileID: 269093183157644556, guid: 7a21e79c256cb774aa7b7aad3fe982af,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -645,6 +650,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3884173310291992351, guid: 7a21e79c256cb774aa7b7aad3fe982af,
+        type: 3}
+      propertyPath: m_Name
+      value: Spinner_Attacker_01
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7a21e79c256cb774aa7b7aad3fe982af, type: 3}
@@ -822,8 +832,6 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
-      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
     m_FontSize: 14
@@ -901,8 +909,6 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
-      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
     m_FontSize: 14
@@ -1058,8 +1064,9 @@ Light:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 705507993}
   m_Enabled: 1
-  serializedVersion: 9
+  serializedVersion: 10
   m_Type: 1
+  m_Shape: 0
   m_Color: {r: 1, g: 0.95686275, b: 0.8392157, a: 1}
   m_Intensity: 1
   m_Range: 10
@@ -1179,8 +1186,6 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
-      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_Sprite: {fileID: 21300000, guid: e7f5b1403387acd4e826d2daf51e4eaf, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
@@ -1206,6 +1211,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 882062677}
     m_Modifications:
+    - target: {fileID: 1166396451407787573, guid: 52a6dbac7e6878441a0bf1d7d8a69606,
+        type: 3}
+      propertyPath: m_Name
+      value: Spinner_Attacker_02
+      objectReference: {fileID: 0}
     - target: {fileID: 2770987814479266854, guid: 52a6dbac7e6878441a0bf1d7d8a69606,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1260,11 +1270,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1166396451407787573, guid: 52a6dbac7e6878441a0bf1d7d8a69606,
-        type: 3}
-      propertyPath: m_Name
-      value: Spinner_Attacker_02
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 52a6dbac7e6878441a0bf1d7d8a69606, type: 3}
@@ -1361,6 +1366,7 @@ GameObject:
   m_Component:
   - component: {fileID: 882062677}
   - component: {fileID: 882062678}
+  - component: {fileID: 882062679}
   m_Layer: 8
   m_Name: SpinnerTopModel_2
   m_TagString: Untagged
@@ -1397,6 +1403,7 @@ SpriteRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -1432,6 +1439,27 @@ SpriteRenderer:
   m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &882062679
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 882062676}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 190f22adee323014da14fa81bcc5a5f3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _playerGraphics: {fileID: 2024092241}
+  _spinSpeed: 50
+  _doSpin: 1
+--- !u!1 &930331403 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4894918156850895201, guid: f19d6ba5e6a078f44891bc6dbe03b3aa,
+    type: 3}
+  m_PrefabInstance: {fileID: 1627051411}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &935248130
 GameObject:
   m_ObjectHideFlags: 0
@@ -1487,8 +1515,6 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
-      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_text: re-select
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: dac26dc60cc21c248b15a0d377e0dc4c, type: 2}
@@ -1600,6 +1626,7 @@ GameObject:
   m_Component:
   - component: {fileID: 955095337}
   - component: {fileID: 955095338}
+  - component: {fileID: 955095339}
   m_Layer: 8
   m_Name: SpinnerTopModel_4
   m_TagString: Untagged
@@ -1636,6 +1663,7 @@ SpriteRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -1671,6 +1699,21 @@ SpriteRenderer:
   m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &955095339
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 955095336}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 190f22adee323014da14fa81bcc5a5f3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _playerGraphics: {fileID: 930331403}
+  _spinSpeed: 50
+  _doSpin: 1
 --- !u!1 &1017666829
 GameObject:
   m_ObjectHideFlags: 0
@@ -1764,8 +1807,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-    m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
-      Culture=neutral, PublicKeyToken=null
 --- !u!114 &1017666832
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1784,8 +1825,6 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
-      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_Sprite: {fileID: 21300000, guid: deacb1302b5e3604bab367ec4cf26018, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
@@ -2016,8 +2055,9 @@ Light:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1233813603}
   m_Enabled: 1
-  serializedVersion: 9
+  serializedVersion: 10
   m_Type: 0
+  m_Shape: 0
   m_Color: {r: 0, g: 0.47592783, b: 1, a: 1}
   m_Intensity: 73.5
   m_Range: 22.7
@@ -2161,8 +2201,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-    m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
-      Culture=neutral, PublicKeyToken=null
 --- !u!114 &1237791872
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2181,8 +2219,6 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
-      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_Sprite: {fileID: 21300000, guid: 2d05abac8c5b4824382f2f4bcbe89918, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
@@ -2294,8 +2330,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-    m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
-      Culture=neutral, PublicKeyToken=null
 --- !u!114 &1289593103
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2314,8 +2348,6 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
-      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_Sprite: {fileID: 21300000, guid: f4980a792ecefdc46889509eeab1859e, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
@@ -2382,6 +2414,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1327619906}
   - component: {fileID: 1327619907}
+  - component: {fileID: 1327619908}
   m_Layer: 8
   m_Name: SpinnerTopModel_1
   m_TagString: Untagged
@@ -2418,6 +2451,7 @@ SpriteRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -2453,6 +2487,27 @@ SpriteRenderer:
   m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1327619908
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1327619905}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 190f22adee323014da14fa81bcc5a5f3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _playerGraphics: {fileID: 1422382714}
+  _spinSpeed: 50
+  _doSpin: 1
+--- !u!1 &1422382714 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3884173310291992351, guid: 7a21e79c256cb774aa7b7aad3fe982af,
+    type: 3}
+  m_PrefabInstance: {fileID: 326682647}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1571653638
 GameObject:
   m_ObjectHideFlags: 0
@@ -2546,8 +2601,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-    m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
-      Culture=neutral, PublicKeyToken=null
 --- !u!114 &1571653641
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2566,8 +2619,6 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
-      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_Sprite: {fileID: 21300000, guid: 6cb017c458090fd4d843c1cad422e7ba, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
@@ -2641,8 +2692,6 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
-      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_text: pLAYER SELECTION
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: dac26dc60cc21c248b15a0d377e0dc4c, type: 2}
@@ -2934,8 +2983,6 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
-      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_text: Battle
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: dac26dc60cc21c248b15a0d377e0dc4c, type: 2}
@@ -3092,8 +3139,6 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
-      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_text: back
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: dac26dc60cc21c248b15a0d377e0dc4c, type: 2}
@@ -3250,8 +3295,6 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
-      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_text: select
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: dac26dc60cc21c248b15a0d377e0dc4c, type: 2}
@@ -3410,8 +3453,6 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
-      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_Sprite: {fileID: 21300000, guid: d47a3d7a2be6f284c9e389e1d1340293, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
@@ -3487,8 +3528,6 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
-      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_Sprite: {fileID: 21300000, guid: d47a3d7a2be6f284c9e389e1d1340293, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
@@ -3631,8 +3670,6 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
-      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_Sprite: {fileID: 21300000, guid: b4b68cef52c9e564f88b457e8406ddce, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
@@ -3706,8 +3743,6 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
-      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_text: attack
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: dac26dc60cc21c248b15a0d377e0dc4c, type: 2}
@@ -3809,6 +3844,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2010573071}
   m_CullTransparentMesh: 0
+--- !u!1 &2024092241 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1166396451407787573, guid: 52a6dbac7e6878441a0bf1d7d8a69606,
+    type: 3}
+  m_PrefabInstance: {fileID: 803544280}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &2060466950 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 9051494727784928404, guid: ea3ce06db6111ae41b784405dd49f18b,
+    type: 3}
+  m_PrefabInstance: {fileID: 1975092762}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2080774245
 GameObject:
   m_ObjectHideFlags: 0
@@ -3834,8 +3881,9 @@ Light:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2080774245}
   m_Enabled: 1
-  serializedVersion: 9
+  serializedVersion: 10
   m_Type: 0
+  m_Shape: 0
   m_Color: {r: 1, g: 0.7466693, b: 0.28773582, a: 1}
   m_Intensity: 20
   m_Range: 21.6
@@ -3926,8 +3974,6 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
-      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_Sprite: {fileID: 21300000, guid: e2d8c0d497d6e8e42a6ec3c02e4be22d, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
@@ -4002,8 +4048,6 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
-      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_Sprite: {fileID: 21300000, guid: 43e6c2f300357be41be89ae4f1438fc8, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
