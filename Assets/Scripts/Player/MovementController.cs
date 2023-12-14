@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class MovementController : MonoBehaviour
 {
-    [SerializeField] private Joystick _joystick;
+    public Joystick _joystick;
     [Header("Speed")]
         [SerializeField] private float _speed;
         [SerializeField] private float _maxVelocityChanged;

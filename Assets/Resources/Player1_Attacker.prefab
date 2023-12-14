@@ -306,6 +306,9 @@ GameObject:
   - component: {fileID: 2523371896380985824}
   - component: {fileID: 2031243269}
   - component: {fileID: 6638844237740454066}
+  - component: {fileID: 1422347077574170895}
+  - component: {fileID: 3149923105846358711}
+  - component: {fileID: 2626356255634728119}
   m_Layer: 0
   m_Name: Player1_Attacker
   m_TagString: Player
@@ -403,6 +406,58 @@ MonoBehaviour:
   _playerGraphics: {fileID: 2523371895095917476}
   _spinSpeed: 3600
   _doSpin: 1
+--- !u!114 &1422347077574170895
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2523371896380985836}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  Synchronization: 3
+  OwnershipTransfer: 0
+  observableSearch: 2
+  ObservedComponents:
+  - {fileID: 2626356255634728119}
+  sceneViewId: 0
+  InstantiationId: 0
+  isRuntimeInstantiated: 0
+--- !u!114 &3149923105846358711
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2523371896380985836}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a56c0e5eb6e5bec41b28b6fd0959c1c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerNameText: {fileID: 2523371896480695254}
+--- !u!114 &2626356255634728119
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2523371896380985836}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: af6dd7b9c0268b4439f2c2be85f69864, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  synchronizeVelocity: 1
+  synchronizeAngularVelocity: 1
+  isTeleportEnabled: 1
+  teleportIfDistanceGreaterThan: 1
 --- !u!1 &2523371896480695252
 GameObject:
   m_ObjectHideFlags: 0
@@ -1205,15 +1260,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7a21e79c256cb774aa7b7aad3fe982af, type: 3}
---- !u!4 &7954243406276922915 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 269093183157644556, guid: 7a21e79c256cb774aa7b7aad3fe982af,
-    type: 3}
-  m_PrefabInstance: {fileID: 7917087279287771951}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &423723676981237891 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7511576053577792428, guid: 7a21e79c256cb774aa7b7aad3fe982af,
+    type: 3}
+  m_PrefabInstance: {fileID: 7917087279287771951}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &7954243406276922915 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 269093183157644556, guid: 7a21e79c256cb774aa7b7aad3fe982af,
     type: 3}
   m_PrefabInstance: {fileID: 7917087279287771951}
   m_PrefabAsset: {fileID: 0}
