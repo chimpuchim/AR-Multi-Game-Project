@@ -56,7 +56,6 @@ public class SpawnManager : MonoBehaviourPunCallbacks
                     PhotonNetwork.Instantiate(playerPrefabs[(int)playerSelectionNumber].name, instantiatePosition, Quaternion.identity);
 
                 }
-                // SpawnPlayer();
             }
         }
     
