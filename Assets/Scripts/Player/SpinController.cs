@@ -5,7 +5,7 @@ public class SpinController : MonoBehaviour
     [SerializeField] private GameObject _playerGraphics;
     
     [Header("Spinner")] 
-        [SerializeField] private float _spinSpeed;
+        public float _spinSpeed;
         [SerializeField] private bool _doSpin;
 
         private void FixedUpdate()

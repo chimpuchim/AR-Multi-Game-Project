@@ -381,6 +381,7 @@ GameObject:
   - component: {fileID: -876879644532122728}
   - component: {fileID: -6220160380380992260}
   - component: {fileID: 1438054210130162152}
+  - component: {fileID: 263233083013941480}
   m_Layer: 0
   m_Name: Player4_Defender
   m_TagString: Player
@@ -556,6 +557,34 @@ MonoBehaviour:
   synchronizeAngularVelocity: 1
   isTeleportEnabled: 1
   teleportIfDistanceGreaterThan: 1
+--- !u!114 &263233083013941480
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4663518797756989780}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8963f70700adf734e802945293315f47, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spinnerScript: {fileID: 4922140273523048808}
+  uI3DGameobject: {fileID: 4663518798063194202}
+  deathPanelUIPrefab: {fileID: 3593783272886976281, guid: 0367e5d2c0c49da4b80c7fe1c169056c,
+    type: 3}
+  spinSpeedBarImage: {fileID: 4663518798249398227}
+  spinSpeedRatioText: {fileID: 6403045122420741532}
+  commonDamageCoefficient: 0.04
+  isAttacker: 0
+  isDefender: 0
+  doDamageCoefficientAttacker: 10
+  getDamagedCoefficientAttacker: 1.2
+  doDamageCoefficientDefender: 0.75
+  getDamagedCoefficientDefender: 0.2
+  pooledObjects: []
+  amountToPool: 8
+  CollisionEffectPrefab: {fileID: 0}
 --- !u!1 &4663518798063194202
 GameObject:
   m_ObjectHideFlags: 0
